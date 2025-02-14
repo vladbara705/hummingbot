@@ -2,12 +2,9 @@ services:
   - type: worker
     name: hummingbot
     numInstances: 1
-    region: frankfurt # Default: oregon
+    region: frankfurt
     plan: standard
     autoDeploy: false
     image:
       url: hummingbot/hummingbot:latest
     runtime: docker
-    disk:
-      name: ./
-      mountPath: /home/hummingbot
