@@ -3,7 +3,9 @@ services:
     type: web
     env: docker
     dockerfilePath: ./Dockerfile
-    image: "hummingbot/hummingbot:latest"
+    image:
+      url: hummingbot/hummingbot:latest
+    runtime: docker
     disk:
       name: ./
       mountPath: /home/hummingbot
