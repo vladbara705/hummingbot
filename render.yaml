@@ -3,8 +3,6 @@ services:
     name: hummingbot
     runtime: image
 #    dockerfilePath: ./Dockerfile
-    region: frankfurt
-    plan: standard
     autoDeploy: false
     image:
       url: hummingbot/hummingbot:latest
