@@ -5,9 +5,6 @@ services:
     region: frankfurt # Default: oregon
     plan: standard
     autoDeploy: false
-    buildCommand: bundle install
-    preDeployCommand: bundle exec ruby migrate.rb
-    startCommand: bundle exec ruby main.rb
     image:
       url: hummingbot/hummingbot:latest
     runtime: docker
