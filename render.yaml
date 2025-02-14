@@ -1,8 +1,6 @@
 services:
   - name: hummingbot
     type: web
-    env: docker
-    dockerfilePath: ./Dockerfile
     image:
       url: hummingbot/hummingbot:latest
     runtime: docker
