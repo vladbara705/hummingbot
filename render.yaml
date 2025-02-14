@@ -3,30 +3,7 @@ services:
     type: web
     env: docker
     dockerfilePath: ./Dockerfile
-    image: hummingbot/hummingbot:latest
+    image: "hummingbot/hummingbot:latest"
     disk:
-      - name: conf
-        mountPath: /home/hummingbot/conf
-      - name: conf-connectors
-        mountPath: /home/hummingbot/conf/connectors
-      - name: conf-strategies
-        mountPath: /home/hummingbot/conf/strategies
-      - name: conf-controllers
-        mountPath: /home/hummingbot/conf/controllers
-      - name: conf-scripts
-        mountPath: /home/hummingbot/conf/scripts
-      - name: logs
-        mountPath: /home/hummingbot/logs
-      - name: data
-        mountPath: /home/hummingbot/data
-      - name: certs
-        mountPath: /home/hummingbot/certs
-      - name: scripts
-        mountPath: /home/hummingbot/scripts
-      - name: controllers
-        mountPath: /home/hummingbot/controllers
-    logging:
-      maxSize: "10m"
-      maxFiles: 5
-    network:
-      mode: host
+      name: ./
+      mountPath: /home/hummingbot
