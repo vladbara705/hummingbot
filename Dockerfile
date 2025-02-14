@@ -3,7 +3,7 @@ FROM continuumio/miniconda3:latest AS builder
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev && \
+    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev tini && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/hummingbot
@@ -71,6 +71,8 @@ COPY --from=builder /home/ /home/
 # Setting bash as default shell because we have .bashrc with customized PATH (setting SHELL affects RUN, CMD and ENTRYPOINT, but not manual commands e.g. `docker run image COMMAND`!)
 SHELL [ "/bin/bash", "-lc" ]
 
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
 # Set the default command to run when starting the container
 
-CMD conda activate hummingbot && ./bin/hummingbot_quickstart.py 2>> ./logs/errors.log
+CMD ["bash", "-c", "conda activate hummingbot && python3 ./bin/hummingbot_quickstart.py >> ./logs/output.log 2>> ./logs/errors.log"]

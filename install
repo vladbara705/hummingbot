@@ -53,8 +53,6 @@ fi
 
 source "${CONDA_BIN}/activate" hummingbot
 
-conda init
-
 # Add the project directory to module search paths.
 conda develop .
 
