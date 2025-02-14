@@ -1,6 +1,6 @@
 services:
-  - name: hummingbot
-    type: web
+  - type: worker
+    name: hummingbot
     image:
       url: hummingbot/hummingbot:latest
     runtime: docker
