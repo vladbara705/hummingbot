@@ -1,10 +1,7 @@
 services:
   - type: worker
-    name: hummingbot
-    numInstances: 1
-    region: frankfurt
-    plan: standard
-    autoDeploy: false
-    image:
-      url: hummingbot/hummingbot:latest
+    name: queue
     runtime: docker
+    dockerfilePath: ./sub/Dockerfile # Optional
+    dockerContext: ./sub/src # Optional
+    branch: master # Optional
