@@ -3,7 +3,7 @@ FROM continuumio/miniconda3:latest AS builder
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev tini && \
+    apt-get install -y sudo libusb-1.0 gcc g++ python3-dev tini tmux && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/hummingbot
@@ -73,4 +73,4 @@ SHELL [ "/bin/bash", "-lc" ]
 
 # Set the default command to run when starting the container
 
-CMD conda activate hummingbot && ./start
+CMD ["tmux", "new-session", "-d", "bash -c 'conda activate hummingbot && ./bin/hummingbot_quickstart.py'"]
